@@ -49,7 +49,7 @@
     <div class="container">
       <div>
         <h3>Namaskaaram! - Convert your image(s) online for free.</h3>
-        <form action="/edit">
+        <form action="/edit" method="post" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="formFile" class="form-label"
               >upload the image you want to convert</label
@@ -70,7 +70,9 @@
             </select>
             <label for="floatingSelect">choose conversion type</label>
           </div>
-          <button type="button" class="btn btn-success">convert</button>
+          <button type="submit" class="btn btn-success" style="margin-top: 1em">
+            convert
+          </button>
         </form>
       </div>
     </div>
