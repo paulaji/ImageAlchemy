@@ -12,9 +12,15 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary"
+      style="margin-bottom: 2.2em"
+    >
       <div class="container-fluid">
-        <a class="navbar-brand text-nowrap bg-body-secondary border" href="/"
+        <a
+          class="navbar-brand text-nowrap bg-body-secondary border"
+          style="font-weight: bold"
+          href="/"
           >ImageAlchemy</a
         >
         <button
@@ -43,6 +49,29 @@
     <div class="container">
       <div>
         <h3>Namaskaaram! - Convert your image(s) online for free.</h3>
+        <form action="/edit">
+          <div class="mb-3">
+            <label for="formFile" class="form-label"
+              >upload the image you want to convert</label
+            >
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+          <div class="form-floating">
+            <select
+              class="form-select"
+              id="floatingSelect"
+              aria-label="Floating label select example"
+            >
+              <option selected>select a format to convert to</option>
+              <option value="cpng">convert to PNG</option>
+              <option value="cgray">convert to Grayscale</option>
+              <option value="cwebp">convert to WebP</option>
+              <option value="cjpg">convert to JEPG/JPG</option>
+            </select>
+            <label for="floatingSelect">choose conversion type</label>
+          </div>
+          <button type="button" class="btn btn-success">convert</button>
+        </form>
       </div>
     </div>
     <script

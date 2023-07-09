@@ -1,3 +1,4 @@
 "ImageAlchemy" is an ImageConvertor using Python with the flask framework and OpenCV library!
 
 pip3 install flask opencv-python
+to run: python main.py or just hit the run button which vscode gives :)
