@@ -46,6 +46,14 @@
         </div>
       </div>
     </nav>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <!-- <ul class="flashes"> -->
+    {% for category, message in messages %}
+    <li class="{{ category }}">{{ message | safe }}</li>
+    {% endfor %}
+    <!-- </ul> -->
+    {% endif %} {% endwith %}
     <div class="container">
       <div>
         <h3>Namaskaaram! - Convert your image(s) online for free.</h3>

@@ -6,6 +6,7 @@ UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpeg', 'webp', 'jpg'}
 
 app = Flask(__name__)
+app.secret_key = 'super secret key'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def processImage(filename, operation):
@@ -45,6 +46,7 @@ def upload():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             processImage(filename, operation)
+            flash(f"click <a href='./static/{filename}'>here</a> to view your processed image")
             return render_template("index.html")
     return render_template('index.html')
 
