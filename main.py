@@ -46,7 +46,7 @@ def upload():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             processImage(filename, operation)
-            flash(f"click <a href='./static/{filename}'>here</a> to view your processed image")
+            flash(f"{filename} was processed. Click <a href='./static/{filename}' target='_blank'>here</a> to view your processed image.")
             return render_template("index.html")
     return render_template('index.html')
 
