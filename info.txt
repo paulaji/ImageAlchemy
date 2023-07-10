@@ -2,3 +2,8 @@
 
 pip3 install flask opencv-python
 to run: python main.py or just hit the run button which vscode gives :)
+
+NOTE: create two folders, 
+static
+uploads
+in the root directory of your folder
