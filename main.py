@@ -16,7 +16,24 @@ def processImage(filename, operation):
         case 'cgray': 
             # using cvtColor (convert color) of cv2 library to do manipulations
             imgProcessed = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-            cv2.imwrite(f"./static/{filename}", imgProcessed)
+            newFilename = f"./static/{filename}"
+            cv2.imwrite(newFilename, imgProcessed)
+            return newFilename
+        case 'cwebp': 
+            # using filename . to split and change the format
+            newFilename = f"./static/{filename.split('.')[0]}.webp"
+            cv2.imwrite(newFilename, img)
+            return newFilename
+        case 'cjpg': 
+            # using filename . to split and change the format
+            newFilename = f"./static/{filename.split('.')[0]}.jpg"
+            cv2.imwrite(newFilename, img)
+            return newFilename
+        case 'cpng': 
+            # using filename . to split and change the format
+            newFilename = f"./static/{filename.split('.')[0]}.png"
+            cv2.imwrite(newFilename, img)
+            return newFilename
     pass
 
 @app.route('/')
@@ -45,8 +62,8 @@ def upload():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            processImage(filename, operation)
-            flash(f"{filename} was processed. Click <a href='./static/{filename}' target='_blank'>here</a> to view your processed image.")
+            new = processImage(filename, operation)
+            flash(f"{filename} was processed. Click <a href='./{new}' target='_blank'>here</a> to view your processed image.")
             return render_template("index.html")
     return render_template('index.html')
 
